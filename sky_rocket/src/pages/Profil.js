@@ -3,7 +3,6 @@ import Log from "../components/Log";
 
 const Profil = () => {
 
-
   return (
     <div className="profil-page">
 
