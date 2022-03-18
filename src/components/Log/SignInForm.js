@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignInForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -24,9 +26,10 @@ const SignInForm = () => {
         if (res.data.errors) {
           emailError.innerHTML = res.data.errors.email;
           passwordError.innerHTML = res.data.errors.password;
-        } else {
-          window.location = "/";
-        }
+          return
+        } 
+        navigate('/', {replace: true}) ;
+        
       })
       .catch((err) => {
         console.log(err);
