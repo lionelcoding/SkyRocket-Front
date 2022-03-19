@@ -1,7 +1,6 @@
 {
   "name": "sky_rocket",
   "version": "0.1.0",
-  "homepage": "https://Ju4n-P.github.io/SkyRocket-Front/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
