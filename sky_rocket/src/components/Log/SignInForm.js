@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
+// import  from "js-cookie";
 
 const SignInForm = () => {
   const [email, setEmail] = useState("");
@@ -30,7 +30,7 @@ const SignInForm = () => {
           passwordError.innerHTML = res.data.errors.password;
           return 
         }
-        Cookies.set('jwt', res.data.jwt)
+        // Cookies.set('jwt', res.data.jwt);
         navigate('/', {replace: true}) ;
       
       })
