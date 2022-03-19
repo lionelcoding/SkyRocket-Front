@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/SkyRocket-Front/static/css/main.073c9b0a.css",
+    "main.js": "/SkyRocket-Front/static/js/main.2a29cf6a.js",
+    "index.html": "/SkyRocket-Front/index.html",
+    "main.073c9b0a.css.map": "/SkyRocket-Front/static/css/main.073c9b0a.css.map",
+    "main.2a29cf6a.js.map": "/SkyRocket-Front/static/js/main.2a29cf6a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.2a29cf6a.js"
+  ]
+}
