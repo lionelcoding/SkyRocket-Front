@@ -65,10 +65,14 @@ const SignUpForm = () => {
           </h4>
         </>
       ) : (
+        <div className="container p-20 ">
         <form action="" onSubmit={handleRegister} id="sign-up-form">
           <label htmlFor="pseudo">Pseudo</label>
-          <br />
           <input
+            class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 
+            focus:outline-none focus:border-sky-500 
+            focus:ring-sky-500 
+            block rounded-md sm:text-sm focus:ring-1"
             type="text"
             name="pseudo"
             id="pseudo"
@@ -77,9 +81,16 @@ const SignUpForm = () => {
           />
           <div className="pseudo error"></div>
           <br />
-          <label htmlFor="email">Email</label>
-          <br />
+          <label htmlFor="email" class="block">
+            Email
+          </label>
+          
           <input
+            class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 
+            focus:outline-none focus:border-sky-500 
+            focus:ring-sky-500 block  
+            rounded-md sm:text-sm focus:ring-1"
+            placeholder="you@example.com"
             type="text"
             name="email"
             id="email"
@@ -91,6 +102,11 @@ const SignUpForm = () => {
           <label htmlFor="password">Mot de passe</label>
           <br />
           <input
+            class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 
+            focus:outline-none focus:border-sky-500 
+            focus:ring-sky-500 
+            block rounded-md sm:text-sm focus:ring-1"
+            placeholder="you@example.com"
             type="password"
             name="password"
             id="password"
@@ -100,8 +116,13 @@ const SignUpForm = () => {
           <div className="password error"></div>
           <br />
           <label htmlFor="password-conf">Confirmer mot de passe</label>
-          <br/>
+          <br />
           <input
+            class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 
+            focus:outline-none focus:border-sky-500 
+            focus:ring-sky-500 block
+            rounded-md sm:text-sm focus:ring-1"
+            placeholder="******"
             type="password"
             name="password"
             id="password-conf"
@@ -121,6 +142,7 @@ const SignUpForm = () => {
           <br />
           <input type="submit" value="Valider inscription" />
         </form>
+        </div>
       )}
     </>
   );

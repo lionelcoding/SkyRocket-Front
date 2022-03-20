@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const SignInForm = () => {
   const [email, setEmail] = useState("");
@@ -24,12 +25,14 @@ const SignInForm = () => {
       .then((res) => {
         console.log(res);
         if (res.data.errors) {
+          //remove utiliser 2 state
           emailError.innerHTML = res.data.errors.email;
           passwordError.innerHTML = res.data.errors.password;
-          return
-        } 
+          return 
+        }
+        Cookies.set('jwt', res.data.jwt)
         navigate('/', {replace: true}) ;
-        
+      
       })
       .catch((err) => {
         console.log(err);
