@@ -12,9 +12,6 @@ import { BrowserRouter } from "react-router-dom";
 // store.dispatch(getPosts());
 
 ReactDOM.render(
-
-
     <App />,
-
   document.getElementById("root")
 );

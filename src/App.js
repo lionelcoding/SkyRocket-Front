@@ -12,7 +12,7 @@ const App = () => {
     const fetchToken = async () => {
       const token = Cookies.get('jwt')
       if (!token){
-        return
+        return 
       }
       await axios({
         method: "get",
@@ -23,9 +23,9 @@ const App = () => {
         withCredentials: true,
       })
         .then((res) => {
-          setUid(res.data);
+          setUid(res.data.user._id);
         })
-        .catch((err) => console.log("No token"));
+        .catch((err) => console.log("No token",err));
     };
     fetchToken();
 
