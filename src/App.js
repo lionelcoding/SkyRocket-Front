@@ -27,6 +27,7 @@ const App = () => {
       })
         .then((res) => {
           setUid(res.data.user._id);
+          console.log('res data',res.data.user._id);
         })
         .catch((err) => console.log("No token",err));
     };

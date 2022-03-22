@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { UidContext } from "./AppContext";
 import Logout from "./Log/Logout";
 
 
+
 const Navbar = () => {
   const uid = useContext(UidContext);
-
+  const userData = useSelector((state) => state.userReducer);
   return (
     <div className='shadow-md w-full fixed top-0 left-0'>
       <div className='font-bold text-2xl cursor-pointer flex items-center font-[Poppins]
@@ -23,10 +25,10 @@ text-gray-800'>
           <ul className='md: flex md: items-center'>
             <li>
               <NavLink exact to="/profil">
-                <div>Profil connecté</div>
+              <h5>Bienvenue {userData.pseudo}</h5>
               </NavLink>
             </li>
-            <Logout />
+            {/* <Logout /> */}
           </ul>
         ) : (
           <ul className='md: flex md: items-center'>

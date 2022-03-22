@@ -7,13 +7,13 @@ import Navbar from "../Navbar";
 const index = () => {
   return (
     <div>
-      <BrowserRouter>
+
       <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profil" element={<Profil />} />
         </Routes>
-      </BrowserRouter>
+
     </div>
   );
 };
