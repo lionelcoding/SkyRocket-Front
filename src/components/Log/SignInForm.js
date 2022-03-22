@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 const SignInForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -28,11 +28,10 @@ const SignInForm = () => {
           //remove utiliser 2 state
           emailError.innerHTML = res.data.errors.email;
           passwordError.innerHTML = res.data.errors.password;
-          return 
+          return;
         }
-        Cookies.set('jwt', res.data.jwt)
-        navigate('/', {replace: true}) ;
-      
+        Cookies.set("jwt", res.data.jwt);
+        navigate("/", { replace: true });
       })
       .catch((err) => {
         console.log(err);
@@ -44,6 +43,10 @@ const SignInForm = () => {
       <label htmlFor="email">Email</label>
       <br />
       <input
+        class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 
+        focus:outline-none focus:border-sky-500 
+        focus:ring-sky-500 
+        block rounded-md sm:text-sm focus:ring-1"
         type="text"
         name="email"
         id="email"
@@ -55,6 +58,10 @@ const SignInForm = () => {
       <label htmlFor="password">Mot de passe</label>
       <br />
       <input
+        class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 
+        focus:outline-none focus:border-sky-500 
+        focus:ring-sky-500 
+        block rounded-md sm:text-sm focus:ring-1"
         type="password"
         name="password"
         id="password"
@@ -63,7 +70,15 @@ const SignInForm = () => {
       />
       <div className="password error"></div>
       <br />
+      <button 
+      class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 
+      focus:outline-none focus:border-sky-500 
+      focus:ring-sky-500 
+      block rounded-md sm:text-sm focus:ring-1"
+      >
+    
       <input type="submit" value="Se connecter" />
+      </button>
     </form>
   );
 };

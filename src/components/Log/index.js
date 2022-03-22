@@ -21,6 +21,7 @@ const Log = ( props ) => {
       <div className="form-container">
         <ul>
           <li
+            class="mt-1 px-3 py-2"
             onClick={handleModals}
             id="register"
             className={signUpModal ? "active-btn" : null}
@@ -28,6 +29,7 @@ const Log = ( props ) => {
             S'inscrire
           </li>
           <li
+            class="px-3"
             onClick={handleModals}
             id="login"
             className={signInModal ? "active-btn" : null}
