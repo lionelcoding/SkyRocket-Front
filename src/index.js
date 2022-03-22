@@ -10,6 +10,13 @@ import { getUser } from "./actions/user.actions";
 // dev tools
 import { composeWithDevTools } from "redux-devtools-extension";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { applyMiddleware, createStore } from "redux";
+import thunk from "redux-thunk";
+import rootReducer from "./reducers";
+// dev tools
+import { composeWithDevTools } from "redux-devtools-extension";
+import { getPosts } from "./actions/post.actions";
 
 const store = createStore(
   rootReducer,
@@ -17,7 +24,7 @@ const store = createStore(
 );
 
 store.dispatch(getUser());
-
+store.dispatch(getPosts());
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -26,5 +33,6 @@ ReactDOM.render(
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,
+
   document.getElementById("root")
 );
