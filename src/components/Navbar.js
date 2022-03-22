@@ -28,7 +28,7 @@ text-gray-800'>
               <h5>Bienvenue {userData.pseudo}</h5>
               </NavLink>
             </li>
-            {/* <Logout /> */}
+            <Logout />
           </ul>
         ) : (
           <ul className='md: flex md: items-center'>
