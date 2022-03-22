@@ -14,9 +14,6 @@ const App = () => {
   useEffect(() => {
     const fetchToken = async () => {
       const token = Cookies.get('jwt')
-      // if (!token){
-      //   return 
-      // }
       await axios({
         method: "get",
         url: `${process.env.REACT_APP_API_URL}jwtid`,
