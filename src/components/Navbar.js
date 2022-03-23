@@ -10,7 +10,7 @@ const Navbar = () => {
   const userData = useSelector((state) => state.userReducer);
   return (
     <div className="container">
-      <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
         <NavLink
           exact
           to="/"

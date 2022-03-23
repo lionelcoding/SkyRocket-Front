@@ -1,13 +1,18 @@
-import React from 'react';
-import Thread from "../components/Thread";
+import React , { useContext } from "react";
+import { UidContext } from "../components/AppContext";
+import Log from "../components/Log";
 
+import Thread from "../components/Thread";
+import AddPost from "../components/AddPost/AddPost";
 
 const Home = () => {
-    return (
-        <div className="container p-20 ">
-          <Thread/>
-        </div>
-    );
+  const uid = useContext(UidContext);
+  return (
+    <div className="container p-20 ">
+      {uid ? <AddPost /> : <Log signin={true} signup={false} />}
+      <Thread />
+    </div>
+  );
 };
 
 export default Home;
