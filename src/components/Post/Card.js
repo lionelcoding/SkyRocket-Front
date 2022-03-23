@@ -7,35 +7,19 @@ const Card = ({ post }) => {
 
   //         };
 
-  console.log(post);
   return (
-    <div class="col">
-      <div
-        class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
-        style={{
-          backgroundImage: `url(${"https://source.unsplash.com/1600x900/?startup,meeting"})`,
-        }}
-      >
-        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-          <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{post.message}</h2>
-          <ul class="d-flex list-unstyled mt-auto">
-            <li class="me-auto">
-              <small>{post.likers.length}</small>
-            </li>
-            <li class="d-flex align-items-center me-3">
-              <svg class="bi me-2" width="1em" height="1em">
-                <use href="#geo-fill"></use>
-              </svg>
-              <small>Earth</small>
-            </li>
-            <li class="d-flex align-items-center">
-              <svg class="bi me-2" width="1em" height="1em">
-                <use href="#calendar3"></use>
-              </svg>
-              <small>{post.createdAt}</small>
-            </li>
-          </ul>
-        </div>
+    <div class="card">
+      <img
+        class="card-img-top"
+        src="https://source.unsplash.com/1600x900/?startup,meeting"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <p class="card-text">
+          <small>{post.createdAt}</small>
+          <small>{post.message}</small>
+          <small>{post.likers.length}</small>
+        </p>
       </div>
     </div>
   );
