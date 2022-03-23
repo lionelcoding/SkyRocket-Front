@@ -5,7 +5,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useDispatch } from "react-redux";
 import { getUser } from "./actions/user.actions";
-
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 const App = () => {
   const [uid, setUid] = useState(null);
