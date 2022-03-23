@@ -17,7 +17,7 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-store.dispatch(getUser());
+// store.dispatch(getUser());
 store.dispatch(getPosts());
 ReactDOM.render(
   <React.StrictMode>
