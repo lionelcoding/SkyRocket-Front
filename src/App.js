@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 import { useDispatch } from "react-redux";
 import { getUser } from "./actions/user.actions";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import Footer from "./components/Footer"
 
 const App = () => {
   const [uid, setUid] = useState(null);
@@ -35,6 +36,7 @@ const App = () => {
   return (
     <UidContext.Provider value={uid}>
       <Routes />
+      <Footer/>
     </UidContext.Provider>
   )
 }

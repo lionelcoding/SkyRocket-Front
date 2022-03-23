@@ -52,9 +52,6 @@ const Navbar = () => {
               <NavLink exact to="/">
               <li class="nav-link px-2 link-secondary">Home</li>
               </NavLink>
-              <NavLink exact to="/contact">
-              <li class="nav-link px-2 link-dark">Contact</li>
-              </NavLink>
               <NavLink exact to="/team">
               <li class="nav-link px-2 link-dark">Team</li>
               </NavLink>
