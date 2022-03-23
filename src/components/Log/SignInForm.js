@@ -2,11 +2,17 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import { useSetAtom } from "jotai";
+import { isLoggedAtom } from "../../stores/user";
+import { useDispatch } from "react-redux";
+import { getUser } from "../../actions/user.actions";
 
 const SignInForm = () => {
+  const setIsLogged = useSetAtom(isLoggedAtom);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -30,7 +36,9 @@ const SignInForm = () => {
           passwordError.innerHTML = res.data.errors.password;
           return;
         }
+        setIsLogged(true);
         Cookies.set("jwt", res.data.jwt);
+        dispatch(getUser(res.data.user));
         navigate("/", { replace: true });
       })
       .catch((err) => {
@@ -70,14 +78,13 @@ const SignInForm = () => {
       />
       <div className="password error"></div>
       <br />
-      <button 
-      class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 
+      <button
+        class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 
       focus:outline-none focus:border-sky-500 
       focus:ring-sky-500 
       block rounded-md sm:text-sm focus:ring-1"
       >
-    
-      <input type="submit" value="Se connecter" />
+        <input type="submit" value="Se connecter" />
       </button>
     </form>
   );
