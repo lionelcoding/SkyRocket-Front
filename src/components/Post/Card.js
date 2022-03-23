@@ -17,7 +17,7 @@ const Card = ({ post }) => {
           <ul>
             <li>{post.message}</li>
             <li class="mt-10">crée le {post.createdAt}</li>
-            <li class="mt-5">Likes : {post.likers.length}</li>
+            <li class="mt-5">Participants : {post.likers.length}</li>
             <li>
               posté par{" "}
               {!isEmpty(usersData[0]) &&
