@@ -47,6 +47,9 @@ const Navbar = () => {
               <NavLink exact to="/team">
                 <li class="nav-link px-2 link-dark">Team</li>
               </NavLink>
+              <NavLink exact to="/create">
+                <li class="nav-link px-2 link-dark">Create Project</li>
+              </NavLink>
             </ul>
             <div class="col-md-3 text-end">
               <Logout />
