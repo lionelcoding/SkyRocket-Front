@@ -1,41 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
+import { isEmpty } from "../Utils";
 
 const Card = ({ post }) => {
-  //   render() {
-  //     const myStyle={
-  // backgroundImage:`url(${process.env.PUBLIC_URL+ "/image.png"})`
+  const usersData = useSelector((state) => state.usersReducer);
 
-  //         };
-
-  console.log(post);
   return (
-    <div class="col">
-      <div
-        class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
-        style={{
-          backgroundImage: `url(${"https://source.unsplash.com/1600x900/?startup,meeting"})`,
-        }}
-      >
-        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-          <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{post.message}</h2>
-          <ul class="d-flex list-unstyled mt-auto">
-            <li class="me-auto">
-              <small>{post.likers.length}</small>
-            </li>
-            <li class="d-flex align-items-center me-3">
-              <svg class="bi me-2" width="1em" height="1em">
-                <use href="#geo-fill"></use>
-              </svg>
-              <small>Earth</small>
-            </li>
-            <li class="d-flex align-items-center">
-              <svg class="bi me-2" width="1em" height="1em">
-                <use href="#calendar3"></use>
-              </svg>
-              <small>{post.createdAt}</small>
+    <div class="card">
+      <img
+        class="card-img-top"
+        src="https://source.unsplash.com/1600x900/?startup,meeting"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <p class="card-text">
+          <ul>
+            <li>{post.message}</li>
+            <li class="mt-10">crée le {post.createdAt}</li>
+            <li class="mt-5">Likes : {post.likers.length}</li>
+            <li>
+              posté par{" "}
+              {!isEmpty(usersData[0]) &&
+                usersData
+                  .map((user) => {
+                    if (user._id === post.posterId) return user.pseudo;
+                    else return null;
+                  })
+                  .join("")}
             </li>
           </ul>
-        </div>
+        </p>
       </div>
     </div>
   );
