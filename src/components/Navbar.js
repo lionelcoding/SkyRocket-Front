@@ -1,12 +1,15 @@
+import { useAtomValue } from "jotai";
 import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { isLoggedAtom } from "../stores/user";
 import { UidContext } from "./AppContext";
 import Logout from "./Log/Logout";
 // import "../node_modules/bootstrap/dist/css/bootstrap/min.css"
 
 const Navbar = () => {
-  const uid = useContext(UidContext);
+  const isLogged = useAtomValue(isLoggedAtom);
+  // const uid = useContext(UidContext);
   const userData = useSelector((state) => state.userReducer);
   return (
     <div className="container">
@@ -29,17 +32,19 @@ const Navbar = () => {
           </svg>
         </NavLink>
 
-        {uid ? (
+        {isLogged ? (
           <>
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
               <NavLink exact to="/profil">
-              <li class="nav-link px-2 link-secondary">Bienvenue {userData.pseudo} </li>
+                <li class="nav-link px-2 link-secondary">
+                  Bienvenue {userData.pseudo}{" "}
+                </li>
               </NavLink>
               <NavLink exact to="/">
-              <li class="nav-link px-2 link-secondary">Home</li>
+                <li class="nav-link px-2 link-secondary">Home</li>
               </NavLink>
               <NavLink exact to="/team">
-              <li class="nav-link px-2 link-dark">Team</li>
+                <li class="nav-link px-2 link-dark">Team</li>
               </NavLink>
             </ul>
             <div class="col-md-3 text-end">
@@ -50,14 +55,14 @@ const Navbar = () => {
           <>
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
               <NavLink exact to="/">
-              <li class="nav-link px-2 link-secondary">Home</li>
+                <li class="nav-link px-2 link-secondary">Home</li>
               </NavLink>
               <NavLink exact to="/team">
-              <li class="nav-link px-2 link-dark">Team</li>
+                <li class="nav-link px-2 link-dark">Team</li>
               </NavLink>
             </ul>
             <div class="col-md-3 text-end">
-            <NavLink exact to="/profil">
+              <NavLink exact to="/profil">
                 <button type="button" class="btn btn-outline-primary me-2">
                   Login
                 </button>
