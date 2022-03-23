@@ -29,15 +29,12 @@ const App = () => {
         .then((res) => {
           setIsLogged(true);
           setUid(res.data.user._id);
-          console.log("res data coucou", res.data.user._id);
+          dispatch(getUser(res.data.user._id));
         })
         .catch((err) => console.log("No token", err));
     };
     fetchToken();
-    console.log("le uid", uid);
-    if (uid) dispatch(getUser(uid));
-    console.log("le uid", uid);
-  }, [uid, dispatch]);
+  }, []);
 
   return (
     <UidContext.Provider value={uid}>

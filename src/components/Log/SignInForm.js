@@ -4,11 +4,15 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useSetAtom } from "jotai";
 import { isLoggedAtom } from "../../stores/user";
+import { useDispatch } from "react-redux";
+import { getUser } from "../../actions/user.actions";
 
 const SignInForm = () => {
+  const setIsLogged = useSetAtom(isLoggedAtom);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -34,6 +38,7 @@ const SignInForm = () => {
         }
         setIsLogged(true);
         Cookies.set("jwt", res.data.jwt);
+        dispatch(getUser(res.data.user));
         navigate("/", { replace: true });
       })
       .catch((err) => {
