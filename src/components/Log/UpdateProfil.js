@@ -19,15 +19,15 @@ const UpdateProfil = () => {
   };
 
   return (
-    <div className="profil-container">
+    <div>
       <h1> Profil de {userData.pseudo}</h1>
-      <div className="update-container">
-        <div className="left-part">
-          <h3>Photo de profil</h3>
+      <div>
+        <div>
+          <h3>Photo de profil à upload</h3>
           <img src={userData.picture} alt="user-pic" />
         </div>
-        <div className="right-part">
-          <div className="bio-update">
+        <div>
+          <div>
             <h3>Bio</h3>
             {updateForm === false && (
               <>
@@ -50,7 +50,6 @@ const UpdateProfil = () => {
           </div>
         </div>
       </div>
-      <div className="thread-container"></div>
     </div>
   );
 };
