@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateBio } from "../../actions/user.actions";
 import userReducer from "../../reducers/user.reducer";
 import usersReducer from "../../reducers/users.reducer";
+import UploadImg from "./UploadImg";
 
 const UpdateProfil = () => {
   const [bio, setBio] = useState("");
@@ -23,7 +24,7 @@ const UpdateProfil = () => {
       <h1> Profil de {userData.pseudo}</h1>
       <div>
         <div>
-          <h3>Photo de profil à upload</h3>
+          <UploadImg />
           <img src={userData.picture} alt="user-pic" />
         </div>
         <div>
