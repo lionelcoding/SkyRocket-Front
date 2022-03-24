@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import Card from "../Post/Card";
 import { isEmpty } from "../Utils";
+import Card from "../../components/Post/Card/Card"
+
 
 const Thread = () => {
   const posts = useSelector((state) => state.postReducer);

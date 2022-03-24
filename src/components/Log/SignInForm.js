@@ -6,6 +6,7 @@ import { useSetAtom } from "jotai";
 import { isLoggedAtom } from "../../stores/user";
 import { useDispatch } from "react-redux";
 import { getUser } from "../../actions/user.actions";
+import "./auth.scss";
 
 const SignInForm = () => {
   const setIsLogged = useSetAtom(isLoggedAtom);
@@ -13,6 +14,7 @@ const SignInForm = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const myStyle = { backgroundImage: "url('./img/passwordpic.jpg')" };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -47,46 +49,74 @@ const SignInForm = () => {
   };
 
   return (
-    <form action="" onSubmit={handleLogin} id="sign-up-form">
-      <label htmlFor="email">Email</label>
-      <br />
-      <input
-        class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 
-        focus:outline-none focus:border-sky-500 
-        focus:ring-sky-500 
-        block rounded-md sm:text-sm focus:ring-1"
-        type="text"
-        name="email"
-        id="email"
-        onChange={(e) => setEmail(e.target.value)}
-        value={email}
-      />
-      <div className="email error"></div>
-      <br />
-      <label htmlFor="password">Mot de passe</label>
-      <br />
-      <input
-        class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 
-        focus:outline-none focus:border-sky-500 
-        focus:ring-sky-500 
-        block rounded-md sm:text-sm focus:ring-1"
-        type="password"
-        name="password"
-        id="password"
-        onChange={(e) => setPassword(e.target.value)}
-        value={password}
-      />
-      <div className="password error"></div>
-      <br />
-      <button
-        class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 
-      focus:outline-none focus:border-sky-500 
-      focus:ring-sky-500 
-      block rounded-md sm:text-sm focus:ring-1"
-      >
-        <input type="submit" value="Se connecter" />
-      </button>
-    </form>
+    <div class="row justify-content-center">
+      <div class="col-md-7 col-lg-5">
+        <div class="wrap">
+          <div class="img" style={myStyle}></div>
+          <div class="login-wrap p-4 p-md-5">
+            <div class="d-flex">
+              <div class="w-100 ">
+                <h3 class="mb-4 ">Sign In</h3>
+              </div>
+            </div>
+            <form action="" onSubmit={handleLogin} class="signin-form">
+              <div class="form-group mt-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  required
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                />
+                <label class="form-control-placeholder" for="email">
+                  email
+                </label>
+              </div>
+              <div class="form-group">
+                <input
+                  id="password-field"
+                  type="password"
+                  class="form-control"
+                  required
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                />
+                <label class="form-control-placeholder" for="password">
+                  Password
+                </label>
+                <span
+                  toggle="#password-field"
+                  class="fa fa-fw fa-eye field-icon toggle-password"
+                ></span>
+              </div>
+              <div class="form-group">
+                <button
+                  type="submit"
+                  class="form-control btn btn-primary rounded submit px-3"
+                >
+                  Sign In
+                </button>
+              </div>
+              <div class="form-group d-md-flex">
+                <div class="w-50 text-left">
+                  <label class="checkbox-wrap checkbox-primary mb-0">
+                    Remember Me
+                    <input type="checkbox" checked />
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+            </form>
+            <p class="text-center">
+              Not a member?{" "}
+              <a data-toggle="tab" href="#signup">
+                Sign Up
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
