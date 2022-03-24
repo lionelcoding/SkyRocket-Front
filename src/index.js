@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import "./styles/index.scss";
 import App from "./App";
 import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
+import { getUsers } from "./actions/users.actions";
 import rootReducer from "./reducers";
-import { getUser } from "./actions/user.actions";
 // dev tools
 import { composeWithDevTools } from "redux-devtools-extension";
 import { getPosts } from "./actions/post.actions";
@@ -17,8 +17,10 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-store.dispatch(getUser());
+// store.dispatch(getUser());
+store.dispatch(getUsers());
 store.dispatch(getPosts());
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
