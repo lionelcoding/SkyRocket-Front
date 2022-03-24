@@ -8,7 +8,7 @@ const Profil = () => {
   return (
     <div className="container p-20">
       <div className="py-10">
-        {uid ? <UpdateProfil /> : <Log signin={false} signup={true} />}
+        {uid ? <UpdateProfil /> : "null" }
       </div>
     </div>
   );
