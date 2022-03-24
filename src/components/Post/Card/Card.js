@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { isEmpty } from "../Utils";
+import { isEmpty } from "../../Utils";
 
 const Card = ({ post }) => {
   const usersData = useSelector((state) => state.usersReducer);
