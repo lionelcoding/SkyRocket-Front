@@ -6,10 +6,8 @@ import { isLoggedAtom } from "../../stores/user";
 import { UidContext } from "../AppContext";
 import Logout from "../Log/Logout";
 
-
 const Navbar = () => {
   const isLogged = useAtomValue(isLoggedAtom);
-  console.log("coucou from nav", isLogged);
   // const uid = useContext(UidContext);
   const userData = useSelector((state) => state.userReducer);
   return (
@@ -20,7 +18,7 @@ const Navbar = () => {
           to="/"
           class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"
         >
-        <img src="./img/rocket.svg" alt="icon" />
+          <img src="./img/rocket.svg" alt="icon" />
         </NavLink>
 
         {isLogged ? (
