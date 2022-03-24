@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./Form.scss";
+// import "./Form.scss";
 import { NavLink } from "react-router-dom";
 import { isEmpty, timestampParser } from "../../Utils";
 import { addPost, getPosts } from "../../../actions/post.actions";
 
-const Form = () => {
-  const [isLoading, setIsLoading] = useState(true);
+const NewPostForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [postPicture, setPostPicture] = useState(null);
   const [video, setVideo] = useState("");
   const [file, setFile] = useState();
   const userData = useSelector((state) => state.userReducer);
-  const error = useSelector((state) => state.errorReducer.postError);
+  const error = useSelector((state) => state.errorReducer?.postError);
   const dispatch = useDispatch();
 
   const handlePost = async () => {
@@ -127,8 +127,8 @@ const Form = () => {
                   <button onClick={() => setVideo("")}>Supprimer video</button>
                 )}
               </div>
-              {!isEmpty(error.format) && <p>{error.format}</p>}
-              {!isEmpty(error.maxSize) && <p>{error.maxSize}</p>}
+              {!isEmpty(error?.format) && <p>{error?.format}</p>}
+              {!isEmpty(error?.maxSize) && <p>{error?.maxSize}</p>}
               <div className="btn-send">
                 {message || postPicture || video.length > 20 ? (
                   <button className="cancel" onClick={cancelPost}>
@@ -147,4 +147,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default NewPostForm;
