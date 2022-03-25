@@ -6,7 +6,6 @@ const CreateProject = () => {
     return (
         <div>
             <NewPostForm/>
-            page add project
         </div>
     );
 };

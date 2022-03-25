@@ -68,9 +68,10 @@ const NewPostForm = () => {
         <i className="fas fa-spinner fa-pulse"></i>
       ) : (
         <>
+        <div class="d-flex justify-content-center flex-column align-items-center">
           <NavLink exact to="/profil">
             <div className="user-info">
-              <img src={userData.picture} alt="user-img" />
+              <img src={userData.picture} alt="user-img" class="rounded"/>
             </div>
           </NavLink>
           <div className="post-form">
@@ -81,8 +82,12 @@ const NewPostForm = () => {
               onChange={(e) => setMessage(e.target.value)}
               value={message}
             />
+          </div>
             {message || postPicture || video.length > 20 ? (
-              <li className="card-container">
+              <div className="card-container">
+                <div>
+                  <h2>Aperçu :</h2>
+                </div>
                 <div className="card-left">
                   <img src={userData.picture} alt="user-pic" />
                 </div>
@@ -107,22 +112,11 @@ const NewPostForm = () => {
                     )}
                   </div>
                 </div>
-              </li>
+              </div>
             ) : null}
             <div className="footer-form">
               <div className="icon">
-                {isEmpty(video) && (
-                  <>
-                    <img src="./img/icons/picture.svg" alt="img" />
-                    <input
-                      type="file"
-                      id="file-upload"
-                      name="file"
-                      accept=".jpg, .jpeg, .png"
-                      onChange={(e) => handlePicture(e)}
-                    />
-                  </>
-                )}
+                {isEmpty(video) && <></>}
                 {video && (
                   <button onClick={() => setVideo("")}>Supprimer video</button>
                 )}
