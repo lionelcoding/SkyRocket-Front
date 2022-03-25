@@ -9,10 +9,8 @@ const Home = () => {
   return (
     <div>
       <BackgroundVideo />
-      <div className="ThreadHome">
-        <Thread />
+        <Thread/>
       </div>
-    </div>
   );
 };
 
